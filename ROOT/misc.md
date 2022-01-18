@@ -3,7 +3,7 @@
 TTree::Draw() is a quick way to produce plots from root files. 
 An example TTree::Draw() script:
 
-```c++
+```cpp
 void ttreeDrawExample() {
   TTree *t = (TTree*)_file0->Get("analysistree/anatree");
   
@@ -14,3 +14,24 @@ void ttreeDrawExample() {
   h->Draw();
 }
 ```
+
+## Turn off messages
+
+To turn off messages like:
+
+```
+Info in <TCanvas::Print>: png file my_plot.png has been created
+```
+
+add in:
+
+```cpp
+gErrorIgnoreLevel = kWarning
+```
+
+or for PyROOT (assuming you have `import ROOT`):
+
+```py
+ROOT.gErrorIgnoreLevel = ROOT.kWarning
+```
+
